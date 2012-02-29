@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>Enter new vote percentages.</h1>
+<form method='post' action="">
+{% csrf_token %}
+<table>
+{{ form.as_table  }}
+</table>
+<input type='submit' name='submit' value='Project Seats'>
+</form>
+<div id='id_total'></div>
+<script type='text/javascript'>
+$(document).ready(function () {
+    recalc = function() {
+        var total = 0;
+        total += parseFloat($("#id_blq").val());
+        total += parseFloat($("#id_cpc").val());
+        total += parseFloat($("#id_grn").val());
+        total += parseFloat($("#id_lpc").val());
+        total += parseFloat($("#id_ndp").val());
+        if (total > 100){
+            $("#id_total").css('color', '#F00');
+        }
+        else {
+            $("#id_total").css('color', '#000');
+        }
+        $("#id_total").text("Total: " +  Math.round(total) + "%");
+    }
+    $('input:text').change(recalc);
+});
+</script>
+{% endblock %}

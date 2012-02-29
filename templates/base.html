@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head><title></title>
+            <script type="text/javascript">
+
+              var _gaq = _gaq || [];
+              _gaq.push(['_setAccount', 'UA-16956140-3']);
+              _gaq.push(['_trackPageview']);
+
+              (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+              })();
+
+            </script>
+            <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+        </head>
+        <style type='text/css'>
+        body {
+            background: #F8F8FF;
+        }
+        #centre_content {
+            width: 700px;
+            margin: auto;
+            font-family: "Trebuchet MS", verdana, sans-serif;
+            background: white;
+            padding: 30px;
+        }
+        ul { 
+            list-style-type: none;
+        }
+        label {
+            min-width: 100px;
+        }
+        #disclaimer {
+            font-size: 60%;
+        }
+        </style>
+        {% block page_style %}{% endblock %}
+    <body>
+    <div id='centre_content'>
+        {% block content %}{% endblock %}
+        <div>Site by <a href='mailto:walter@waltermiller.ca'>Walter Miller</a><br>
+        <p id='disclaimer'>Note - this site uses a very simple algorithm to do it's projections.  Indpendent candidates aren't handled properly. Please use only for entertainment, or to scare your friends who work on the hill.</p>
+        </div>
+    </div>
+    </body>
+</html>

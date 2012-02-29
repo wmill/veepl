@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div id='home_link'>
+<h1><a href="/">veepl.ca</a></h1>
+</div>
+<div id='standings_div'>
+<h1>Party Standings</h1>
+<table>
+{% for sc in seat_counts %}
+<tr><th>{{sc.party}}</th><td>{{sc.seats}}</td></tr>
+{% endfor %}
+</table>
+</div>
+<div id='changed_div'>
+<h1>Changed Seats</h1>
+<table>
+<tr>
+<th>Old Party</th>
+<th>New Party</th>
+<th>Riding</th>
+</th>
+{% for cs in changed  %}
+<tr>
+<td>{{cs.rid.victor}}</td>
+<td>{{cs.new_victor}}</td>
+<td>{{cs.rid}}</td>
+</tr>
+{% endfor %}
+</table>
+<div id='map_div'>
+<h1>Map</h1>
+<iframe id="map" marginheight="0" marginwidth="0" src="http://maps.google.ca/maps?f=q&amp;source=s_q&amp;hl=en&amp;geocode=&amp;q={{map_link}}&amp;output=embed" scrolling="no" frameborder="0" height="400" width="640"></iframe><br><small><a href="http://maps.google.ca/maps?f=q&amp;source=embed&amp;hl=en&amp;geocode=&amp;q={{map_link}}" style="color: rgb(0, 0, 255); text-align: left;">View Larger Map</a></small>
+
+</div>
+{% endblock %}
+{% block page_style %}
+<style type='text/css'>
+#standings_div table {
+    font-size: 24px;
+}
+#map_div #map{
+    margin-left: 30px;
+    margin-right: 30px;
+}
+</style>
+{% endblock %}

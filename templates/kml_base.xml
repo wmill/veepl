@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2">
+<Document>
+{% for rid in ridings %}
+<Style id="rid{{ rid.ed_code  }}">
+<PolyStyle>
+<color>{{rid.color}}</color>
+<colorMode>normal</colorMode>
+<fill>1</fill>
+<outline>1</outline>
+</PolyStyle>
+<LineStyle>
+<color>ffffffff</color>
+<width>1</width>
+</LineStyle>
+</Style>
+{% endfor %}
+</Document>
+</kml>
